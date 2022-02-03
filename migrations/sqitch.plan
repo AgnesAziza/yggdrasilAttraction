@@ -1,0 +1,4 @@
+%syntax-version=1.0.0
+%project=oparc
+
+createDb 2022-02-03T10:05:21Z Sebastien Goyer <seb.goyer56@gmail.com> # Création de la base de données
