@@ -1,0 +1,10 @@
+#page d'acceuil Api
+
+GET http://localhost:3000/api
+
+### home
+
+GET http://localhost:3000/
+
+###
+GET http://localhost:3000/book
