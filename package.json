@@ -19,5 +19,8 @@
   "homepage": "https://github.com/O-clock-Yggdrasil/spedata-minitheose-oparc-aviateur22#readme",
   "devDependencies": {
     "eslint": "^8.8.0"
+  },
+  "dependencies": {
+    "pg": "^8.7.1"
   }
 }
