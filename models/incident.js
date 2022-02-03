@@ -27,15 +27,15 @@ module.exports=(client) => ({
 
     /**
      * Mise a jour de l'incident 
-     * @param {Object} incident 
-     * @param {Number} id 
+     * @param {Object} incident - données de l'incident
+     * @param {Number} id - id de l'incident
      * @returns 
      */
     async updateById(incident, id){
         const result = await client.query('SELECT * FROM "incident" WHERE id = $1', [id]);
 
         if(result.rowCount === 0) {
-
+            return 'no data';
         }
 
         const oldIncident = result.rows[0];
@@ -46,7 +46,9 @@ module.exports=(client) => ({
     },
 
     /**
-     * 
+     * creation d'un incident
+     * @param {Object} incident 
+     * @returns {Object} - renvoie l'incident de créé
      */
     async create(incident){
         const savedIncident = await client.query(            `
