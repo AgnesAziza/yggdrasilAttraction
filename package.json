@@ -1,0 +1,23 @@
+{
+  "name": "spedata-minitheose-oparc-aviateur22",
+  "version": "1.0.0",
+  "description": "Ça y est, on connaît tout ce qu'il nous faut pour coder l'API d'O'parc de A à Z. C'est parti pour 2 jours de code et de SQL non-stop.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Yggdrasil/spedata-minitheose-oparc-aviateur22.git"
+  },
+  "keywords": [],
+  "author": "cyrille cade <aviateur22@hotmail.fr> (https://cyrillecade.netlify.app/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Yggdrasil/spedata-minitheose-oparc-aviateur22/issues"
+  },
+  "homepage": "https://github.com/O-clock-Yggdrasil/spedata-minitheose-oparc-aviateur22#readme",
+  "devDependencies": {
+    "eslint": "^8.8.0"
+  }
+}
