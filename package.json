@@ -4,7 +4,8 @@
   "description": "Ça y est, on connaît tout ce qu'il nous faut pour coder l'API d'O'parc de A à Z. C'est parti pour 2 jours de code et de SQL non-stop.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.2",
     "joi": "^17.6.0",
     "pg": "^8.7.1"
