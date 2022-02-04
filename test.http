@@ -1,0 +1,5 @@
+# recuperation des incidents
+@uri =  http://localhost:{{$dotenv PORT}}/
+
+
+GET {{uri}}
