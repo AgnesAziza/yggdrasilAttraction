@@ -7,12 +7,12 @@ const incidentMiddleware = require('../middleware/index').incidentMiddleware;
 router.get('/', incidentMiddleware.getAll, pageController.homeIncidentPage);
 
 /**Creation d'un nouvel incident  */
-router.post('/new', pageController.CreatePage);
+router.post('/new',incidentMiddleware.createIncident, pageController.CreatePage);
 
 /** */
 router.route('/incident/:id')
     /** recuperation d'un incident*/
-    .get(incidentMiddleware.getIncident, pageController.detailIncidentPage)
+    .get(incidentMiddleware.getIncidentById, pageController.detailIncidentPage)
     /**modification du status d'un incident */
     .put(incidentMiddleware.updateIncident, pageController.updatePage);
 

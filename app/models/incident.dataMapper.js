@@ -69,13 +69,13 @@ module.exports=(client, incidentDataMapperError) => ({
      * @returns {Object} - renvoie l'incident de créé
      */
     async create(incident){
-        try {
+        try {            
             const savedIncident = await client.query(            `
                 INSERT INTO incident
-                (incident_number, nature, technical, repair_date, attraction_id, failure_date) VALUES
+                (incident_number, nature, technical, attraction_id, failure_date) VALUES
                 ($1, $2 ,$3, $4, $5) RETURNING *
             `,
-            [incident.incident_number, incident.nature, incident.technical, incident.repair_date, incident.attraction_id, incident.failure_date],
+            [incident.incident_number, incident.nature, incident.technical, incident.attraction_id, incident.failure_date],
             );
             return savedIncident.rows[0];            
         } catch (error) {

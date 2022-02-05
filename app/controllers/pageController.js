@@ -16,15 +16,17 @@ module.exports ={
     /**
      * 
      */
-    detailIncidentPage: ()=>{
-
+    detailIncidentPage: (req, res, next)=>{
+        const incident = req.incidentById;
+        res.json(incident);
     },
 
     /**
      * 
      */
-    CreatePage: ()=>{
-
+    CreatePage: (req, res, next)=>{
+        const incident = req.createdIncident;
+        res.json(incident);
     },
 
     updatePage: ()=>{

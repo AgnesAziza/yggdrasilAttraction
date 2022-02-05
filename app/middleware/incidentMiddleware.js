@@ -17,7 +17,7 @@ module.exports = {
 
         /**erreur lors de la requete */
         if(incidents.error){
-            console.log(incidents.error.message);
+            console.log(incidents.error.message);            
             return next({errorSchema: incidents.error.errorSchema , type: incidents.error.type}); 
         }        
         /**Renvoie du résulat */
@@ -31,7 +31,7 @@ module.exports = {
      * @param {Object} res 
      * @param {Object} next 
      */
-    getIncident: async(req, res, next)=>{
+    getIncidentById: async(req, res, next)=>{        
         const id =parseInt(req.params.id, 10);
         if(isNaN(id)){
             return next({errorSchema: incidentMiddlewareSchemaError, type:'idBadFormat' }); 
@@ -55,13 +55,25 @@ module.exports = {
     },
 
     /**
-     * cration d'un incident
+     * création d'un incident
      * @param {Object} req 
      * @param {Object} res 
      * @param {Object} next 
      */
     createIncident: async(req, res, next)=>{
-        const createIncident = await incidentDataMapper.create();
+        console.log(req.body);
+
+        if(!req.body){
+            return next({ errorSchema: incidentMiddlewareSchemaError , type: 'missingData' });
+        }
+
+        const {incident_number, nature, technical, attraction_id, failure_date} = req.body;
+
+        if(!incident_number || !nature || !technical || !attraction_id || !failure_date){
+            return next({ errorSchema: incidentMiddlewareSchemaError , type: 'missingData' });
+        }
+
+        const createIncident = await incidentDataMapper.create(req.body);
 
         if(!createIncident){
             console.log('pas de données');
@@ -70,12 +82,14 @@ module.exports = {
 
         /**erreur lors de la requete */
         if(createIncident.error){
-            console.log(createIncident.error.message);
+            console.log(createIncident.error);
+            // console.log(createIncident.error.message);      
+            // console.log(createIncident.error.type);
             return next({errorSchema: createIncident.error.errorSchema , type: createIncident.error.type}); 
         }
 
         /**Renvoie du résulat */
-        req.incidentById = createIncident;
+        req.createdIncident = createIncident;
         next();
     },
 

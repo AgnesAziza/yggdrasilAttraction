@@ -1,5 +1,20 @@
 # recuperation des incidents
-@uri =  http://localhost:{{$dotenv PORT}}/
+@uri =  http://localhost:{{$dotenv PORT}}
 
-
+### recuperation de tous les incidents
 GET {{uri}}
+
+### recuperation incident par id
+GET {{uri}}/incident/98
+
+###création d'un nouvel incident
+POST {{uri}}/new
+content-type: application/json
+
+{
+    "incident_number" : "hfhfhfhf", 
+    "nature": "fuite hydrolique",
+    "technical": "micke",    
+    "attraction_id": "02", 
+    "failure_date": "2022-02-17 07:37:16-08"
+}

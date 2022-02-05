@@ -9,6 +9,9 @@ app.set('view engine','ejs');
 app.set('views','views');
 app.use(express.static('assets'));
 
+//parse en format json
+app.use(express.json());
+
 //access router
 app.use(router);
 
