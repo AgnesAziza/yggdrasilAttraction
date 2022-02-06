@@ -4,7 +4,7 @@
 module.exports ={
 
     /**
-     * 
+     * tous les incidents
      */
     homeIncidentPage: (req, res, next)=>{
         //récuperation des incident
@@ -14,7 +14,7 @@ module.exports ={
     },
 
     /**
-     * 
+     * détail d'un incident
      */
     detailIncidentPage: (req, res, next)=>{
         const incident = req.incidentById;
@@ -22,15 +22,21 @@ module.exports ={
     },
 
     /**
-     * 
+     * créaton d'un incident
      */
     CreatePage: (req, res, next)=>{
         const incident = req.createdIncident;
         res.json(incident);
     },
 
-    updatePage: ()=>{
-
+    /**
+     * Update d'un incident
+     * @param {Object} req 
+     * @param {Object} res 
+     * @param {Object} next 
+     */
+    updatePage: (req, res, next)=>{
+        const incident = req.updateIncident;
+        res.json(incident);
     }
-
 }

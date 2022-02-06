@@ -46,7 +46,7 @@ module.exports = {
         /**erreur lors de la requete */
         if(incidentById.error){
             console.log(incidentById.error.message);
-            return next({errorSchema: incidentById.error.errorSchema , type: incidentById.error.type}); 
+            return next({errorSchema: incidentById.errorSchema , type: incidentById.type}); 
         }
 
         /**Renvoie du résulat */
@@ -61,8 +61,6 @@ module.exports = {
      * @param {Object} next 
      */
     createIncident: async(req, res, next)=>{
-        console.log(req.body);
-
         if(!req.body){
             return next({ errorSchema: incidentMiddlewareSchemaError , type: 'missingData' });
         }
@@ -74,18 +72,17 @@ module.exports = {
         }
 
         const createIncident = await incidentDataMapper.create(req.body);
-
+        
         if(!createIncident){
             console.log('pas de données');
             return next({ errorSchema: incidentMiddlewareSchemaError , type: 'emptyResult' });
         }
 
         /**erreur lors de la requete */
-        if(createIncident.error){
-            console.log(createIncident.error);
+        if(createIncident.error){           
             // console.log(createIncident.error.message);      
             // console.log(createIncident.error.type);
-            return next({errorSchema: createIncident.error.errorSchema , type: createIncident.error.type}); 
+            return next({errorSchema: createIncident.errorSchema , type: createIncident.type}); 
         }
 
         /**Renvoie du résulat */
@@ -114,11 +111,11 @@ module.exports = {
         /**erreur lors de la requete */
         if(updateById.error){
             console.log(updateById.error.message);
-            return next({errorSchema: updateById.error.errorSchema , type: updateById.error.type}); 
+            return next({errorSchema: updateById.errorSchema , type: updateById.type}); 
         }
 
         /**Renvoie du résulat */
-        req.incidentById = updateById;
+        req.updateIncident = updateById;
         next();
     }
 };

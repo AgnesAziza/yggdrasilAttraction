@@ -12,7 +12,19 @@ POST {{uri}}/new
 content-type: application/json
 
 {
-    "incident_number" : "hfhfhfhf", 
+    "incident_number" : "hfhhfhf", 
+    "nature": "fuite hydrolique",
+    "technical": "micke",    
+    "attraction_id": "02", 
+    "failure_date": "2022-02-17 07:37:16-08"
+}
+
+### update incident
+PUT {{uri}}/incident/20
+content-type: application/json
+
+{
+    "incident_number" : "hfhhfhf", 
     "nature": "fuite hydrolique",
     "technical": "micke",    
     "attraction_id": "02", 
