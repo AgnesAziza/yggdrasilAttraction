@@ -1,0 +1,33 @@
+{
+  "name": "yggdrasilattraction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "faker": "node createDonnee.js",
+    "start": "node .",
+    "dev": "DEBUG=*,-express:*,-nodemon* npx nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgnesAziza/yggdrasilAttraction.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AgnesAziza/yggdrasilAttraction/issues"
+  },
+  "homepage": "https://github.com/AgnesAziza/yggdrasilAttraction#readme",
+  "dependencies": {
+    "debug": "^4.3.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "faker": "^5.5.3",
+    "heroku": "^7.59.2",
+    "moment": "^2.29.1",
+    "node": "^17.4.0",
+    "pg": "^8.7.1",
+    "prettier": "^2.5.1"
+  }
+}
